@@ -7,13 +7,10 @@ import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
-import FormElements from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
 import Dashboard from './pages/Dashboard';
 
 function App() {
@@ -35,6 +32,7 @@ function App() {
       <Routes>
         <Route
           index
+          path='dashboard'
           element={
             <>
               <PageTitle title="Dashboard" />
@@ -60,24 +58,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/forms/form-elements"
-          element={
-            <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormElements />
-            </>
-          }
-        />
-        <Route
-          path="/forms/form-layout"
-          element={
-            <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <FormLayout />
-            </>
-          }
-        />
+
         <Route
           path="/tables"
           element={
@@ -111,15 +92,6 @@ function App() {
             <>
               <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <Alerts />
-            </>
-          }
-        />
-        <Route
-          path="/ui/buttons"
-          element={
-            <>
-              <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Buttons />
             </>
           }
         />

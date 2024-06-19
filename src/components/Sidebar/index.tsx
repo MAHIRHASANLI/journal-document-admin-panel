@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import SidebarLinkGroup from './SidebarLinkGroup';
-import Logo from '../../images/logo/logo.svg';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -58,68 +56,60 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-white duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
+      className={`shadow absolute left-0 top-0 z-9999 flex h-screen w-[250px] flex-col overflow-y-hidden bg-white duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
-      <div className="flex items-center justify-between">
-        <NavLink to="/">
+      <div className="flex items-center justify-between h-[61px] border-b-[#dee2e6] border-b-[1px]">
+        <NavLink to="/dashboard" className="w-full">
           {/* <img src={Logo} alt="Logo" /> */}
-          <div className="flex flex-row	items-center justify-between gap-2 px-6 py-2 lg:py-4">
-            <img
-              src="https://ems.aztu.edu.az/assets/dist/img/favicon.png"
-              className="w-20 h-20"
-              alt=""
-            />
-            <p className="text-#343a40">AzTU</p>
+          <div className=" flex	items-center justify-center gap-2">
+            <div className="h-[35px] shadow rounded-full p-[1px]">
+              <img
+                src="https://ems.aztu.edu.az/assets/dist/img/favicon.png"
+                className="size-full"
+                alt=""
+              />
+            </div>
+            <p className="text-[#000000] text-[20px] font-[300]">
+              Elmi-Metodiki Şura
+            </p>
           </div>
         </NavLink>
-
       </div>
       {/* <!-- SIDEBAR HEADER --> */}
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
-        <nav className="mt-5 py-4 px-4 lg:mt-2 lg:px-6">
+        <nav className="m-2">
           {/* <!-- Menu Group --> */}
           <div>
-            <h3 className="mb-4 ml-4 text-sm font-semibold text-#343a40">
-              MENU
-            </h3>
-
             <ul className="mb-6 flex flex-col gap-1.5">
               {/* <!-- Menu Item Dashboard --> */}
-              <SidebarLinkGroup
-                activeCondition={
-                  pathname === '/' || pathname.includes('dashboard')
-                }
-              >
-                {(handleClick, open) => {
-                  return (
-                    <React.Fragment>
-                      <NavLink
-                        to="/"
-                        className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-#343a40 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 
-                        
-                          'bg-graydark dark:bg-meta-4'
-                        `}
-                      >
-                        <i className="nav-icon fas fa-grip"></i>
-                        Dashboard
-                      </NavLink>
-                    </React.Fragment>
-                  );
-                }}
-              </SidebarLinkGroup>
+
               {/* <!-- Menu Item Dashboard --> */}
               <li>
                 <NavLink
+                  to="/dashboard"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium duration-300 ease-in-out hover:bg-[rgba(0,0,0,0.1)] text-[#212529] hover:text-[#212529]
+                    ${
+                      pathname.includes('dashboard') &&
+                      'bg-[#446ccf] text-white'
+                    }`}
+                >
+                  <i className="nav-icon fas fa-grip"></i>
+                  Dashboard
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/calendar"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-#343a40 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('calendar') &&
-                    'bg-graydark dark:bg-meta-4'
-                  }`}
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium duration-300 ease-in-out hover:bg-[rgba(0,0,0,0.1)] text-[#212529] hover:text-[#212529]
+                        ${
+                          pathname.includes('calendar') &&
+                          'bg-[#446ccf] text-white'
+                        }`}
                 >
                   <i className="fa-solid fa-newspaper"></i>
                   Materiallar
